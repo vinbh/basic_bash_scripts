@@ -1,0 +1,28 @@
+###AWK Intro###
+
+* Basic function is to search files for lines(or some units of texts)
+* while(not the end of file)
+ do
+    If a line matches a pattern, awk will perform an action on it.
+
+* Awk is an interpreted language
+
+# awk 'pattern {action}' file_name
+
+# demo
+
+ cat /etc/group
+ #cut -d ":" -f3 /etc/group | xargs -I token bash -c "if [[ token -gt 100 ]]; then echo token; fi"
+ 
+## action but no pattern ##
+ awk -F ":" '{print $3}' /etc/group
+
+## Pattern but no action, default action is to print ful line
+ awk -F ":" '$3 > 100' /etc/group
+ awk -F ":" '$3 > 110' /etc/group
+ awk -F ":" '$3 > 115' /etc/group
+ awk -F ":" '$3 > 115' /etc/#group
+
+ ## The awk Handbook! 
+
+http://www.cs.unibo.it/~renzo/doc/awk/nawkA4.pdf
